@@ -1,8 +1,10 @@
 package com.lti.component;
 
-public class HelloWorld {
+import com.lti.interfaces.HelloWorldInterface;
+
+public class HelloWorld implements HelloWorldInterface {
 
 	public String sayHello(String name) {
-		return "Hello" + name;
+		return "Hello "+name;
 	}
 }

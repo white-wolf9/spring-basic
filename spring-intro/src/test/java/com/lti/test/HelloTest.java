@@ -1,12 +1,13 @@
 package com.lti.test;
 
 import org.springframework.context.ApplicationContext;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.lti.component.Calculator;
+import com.lti.interfaces.Calculator;
 import com.lti.component.CurrencyConverter;
-import com.lti.component.DummyCalculator;
-import com.lti.component.HelloWorld;
+import com.lti.component.TextEditor;
+import com.lti.interfaces.HelloWorldInterface;
 
 public class HelloTest {
 
@@ -14,18 +15,19 @@ public class HelloTest {
 		//Loading Spring's IoC Container
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 		
-		HelloWorld hw = (HelloWorld) context.getBean("hellowworld");		//bean id
+		HelloWorldInterface hw = (HelloWorldInterface) context.getBean("hellowworld");		//Factory operation. 
 		System.out.println(hw.sayHello(" wolfie_boii"));
 		
-		DummyCalculator dc = (DummyCalculator) context.getBean("doAdd");
-		System.out.println(dc.doAdd(2, 4));
-		System.out.println(dc.doSubstract(2,6));
+		Calculator calculator = (Calculator) context.getBean("calculator");
+		System.out.println(calculator.doAdd(2, 4));
+		System.out.println(calculator.doSub(2,6));
 		
 		CurrencyConverter convert = (CurrencyConverter)context.getBean("currencyconverter");
 		System.out.println(convert.convertDollarsToRupees(5));
 		
-		Calculator calculate = (Calculator)context.getBean("simplecalculator");
-		System.out.println(calculate.doMultiply(5, 10));
+		TextEditor texteditor = (TextEditor) context.getBean("texteditor");
+		System.out.println(texteditor.load("WOOOSSHHH"));
+		
 	}
 }
 
