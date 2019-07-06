@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Component("texteditor")
 public class TextEditor {
-	
+	/*
+	 * Field Injection
+	 */
 	@Autowired
 	private SpellChecker spellchecker;
 
@@ -14,7 +16,7 @@ public class TextEditor {
 		/*
 		 * Introducing Dependency Injection
 		 * SpellChecker spellchecker =new SpellChecker();
-		 */	
+		 */
 		
 		return spellchecker.spellCheck(doc);
 	}

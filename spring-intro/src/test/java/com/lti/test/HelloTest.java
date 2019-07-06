@@ -22,8 +22,8 @@ public class HelloTest {
 		System.out.println(calculator.doAdd(2, 4));
 		System.out.println(calculator.doSub(2,6));
 		
-		CurrencyConverter convert = (CurrencyConverter)context.getBean("currencyconverter");
-		System.out.println(convert.convertDollarsToRupees(5));
+		CurrencyConverter convert = (CurrencyConverter)context.getBean("CurrencyConverter");
+		System.out.println(convert.convertFromRupees(5,"China"));
 		
 		TextEditor texteditor = (TextEditor) context.getBean("texteditor");
 		System.out.println(texteditor.load("WOOOSSHHH"));
