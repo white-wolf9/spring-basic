@@ -7,6 +7,10 @@
     <bean id="hellowworld" class="com.lti.component.HelloWorld">
         <!-- collaborators and configuration for this bean go here -->
     </bean>
+    <bean id="doAdd" class="com.lti.component.DummyCalculator">
+        <!-- collaborators and configuration for this bean go here -->
+    </bean>
+
 
 
     <!-- more bean definitions go here -->
