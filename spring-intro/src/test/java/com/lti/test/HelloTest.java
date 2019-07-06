@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.lti.interfaces.Atm;
 import com.lti.interfaces.Calculator;
 import com.lti.component.CurrencyConverter;
 import com.lti.component.TextEditor;
@@ -27,6 +28,9 @@ public class HelloTest {
 		
 		TextEditor texteditor = (TextEditor) context.getBean("texteditor");
 		System.out.println(texteditor.load("WOOOSSHHH"));
+		
+		Atm atm = (Atm) context.getBean("AtmImplementation");
+		atm.doWithdraw("ICICI", 1000);
 		
 	}
 }
