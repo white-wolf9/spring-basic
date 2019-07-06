@@ -10,4 +10,5 @@ public class ICICIBankImplementation implements Bank {
 	public void doCommunicate(double amount) {
 		System.out.println(amount+" debited from ICICI");
 	}
+
 }

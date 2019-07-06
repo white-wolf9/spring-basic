@@ -29,6 +29,7 @@ public class HelloTest {
 		TextEditor texteditor = (TextEditor) context.getBean("texteditor");
 		System.out.println(texteditor.load("WOOOSSHHH"));
 		
+		
 		Atm atm = (Atm) context.getBean("AtmImplementation");
 		atm.doWithdraw("ICICI", 1000);
 		
