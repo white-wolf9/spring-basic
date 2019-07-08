@@ -12,6 +12,12 @@
     <context:component-scan base-package="com.lti.component"/>
 	<!-- this Component-scan scans the classes having this Component tag in the specified package   -->
 
-	<!-- DataSource Configuration -->>
+	<!-- DataSource Configuration -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	    <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+	    <property name="username" value="hr"/>
+	    <property name="password" value="hr"/>
+	</bean>
 
 </beans>
