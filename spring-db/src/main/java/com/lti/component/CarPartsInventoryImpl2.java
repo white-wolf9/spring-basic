@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("carPartsImpl2")
@@ -26,12 +27,7 @@ public class CarPartsInventoryImpl2 implements CarPartsInventory{
 			try {
 				
 				conn = dataSource.getConnection();
-				//Class.forName("oracle.jdbc.driver.OracleDriver");	
-				
-				
-				//conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","hr","hr");
 				String sql="insert into TBL_CARPARTS values(?,?,?,?)";
-				
 				stmt=conn.prepareStatement(sql);
 				
 				stmt.setInt(1,carPart.getPartNo());

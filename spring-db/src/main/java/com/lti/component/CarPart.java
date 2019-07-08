@@ -1,12 +1,24 @@
 package com.lti.component;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TBL_CARPARTS")
 public class CarPart {
 
-	
+	@Id
+	@Column(name = "PARTNO")
 	private int partNo;
+	@Column(name = "PARTNAME")
 	private String partName;
+	@Column(name = "CARMODEL")
 	private String carModel;
+	@Column(name = "QUANTITY")
 	private int quantity;
+	
 	public int getPartNo() {
 		return partNo;
 	}
