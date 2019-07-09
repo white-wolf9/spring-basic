@@ -19,8 +19,8 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 	    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 	    <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-	    <property name="username" value="hr"/>
-	    <property name="password" value="hr"/>
+	    <property name="username" value="dummy"/>
+	    <property name="password" value="dummy"/>
 	</bean>
 	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
@@ -32,17 +32,19 @@
 	when using JPA also no need for a separate persistence.xml since all the 
 	settings required for using hibernate or any other ORM can be done within this bean itself -->
 	<bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-    <property name="dataSource" ref="dataSource" /><!-- Data Source Reference -->
-    <property name="packagesToScan" value="com.lti.component" /><!-- Location of Entity Classes -->
-    <property name="jpaVendorAdapter">
-    <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-		    </property>
-			    <property name="jpaProperties">
-			        <props>
-			            <prop key="hibernate.hbm2ddl.auto">update</prop>
-			            <prop key="hibernate.show_sql">true</prop>
-			        </props>
-			    </property>
+	    <property name="dataSource" ref="dataSource" /><!-- Data Source Reference -->
+	    <property name="packagesToScan" value="com.lti.component" /><!-- Location of Entity Classes -->
+	    <property name="jpaVendorAdapter">
+	    	<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" >
+	    		<property name="databasePlatform" value="org.hibernate.dialect.Oracle10gDialect"/>
+	    	</bean>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
 	</bean>
  
  	<!-- This bean entry is responsible for managing transactions in our JPA code -->
@@ -51,4 +53,3 @@
 	</bean>
 	<tx:annotation-driven />
 	</beans>
- 

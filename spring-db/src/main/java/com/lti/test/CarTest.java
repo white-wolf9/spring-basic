@@ -2,14 +2,14 @@ package com.lti.test;
 
 import static org.junit.Assert.*;
 
+
 import java.util.List;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.lti.component.CarPart;
-import com.lti.component.CarPartsInventory;
+import com.lti.component.*;
 
 public class CarTest {
 

@@ -34,7 +34,7 @@ public class CarPartsInventoryImpl4 implements CarPartsInventory{
 	}
 	
 	public List<CarPart> getAvailableparts(){
-		return entityManager.createQuery("select  c from CarPart as c").getResultList();
+		return entityManager.createQuery("select c from CarPart as c").getResultList();
 	}
 
 	
